@@ -61,7 +61,7 @@
 
 	<build>
 	<!-- To create war with the name of application -->
-	<finalName>${artifactId}</finalName>
+	<finalName>${project.artifactId}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
