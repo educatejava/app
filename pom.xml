@@ -9,6 +9,7 @@
 		<version>2.2.4.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
+	
 	<groupId>com.educatejava</groupId>
 	<artifactId>app</artifactId>
 	<packaging>war</packaging>
