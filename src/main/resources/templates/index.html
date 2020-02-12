@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to the App</title>
+</head>
+<body>
+<h1>Welcome to the Application</h1><br/>
+<a href="/example">Example URL</a><br/><br/>
+
+© <span th:text="${#dates.year(#dates.createNow())}"></span>
+</body>
+
+</html>
