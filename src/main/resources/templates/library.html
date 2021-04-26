@@ -15,7 +15,6 @@
 	rel="stylesheet"
 	integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
 	crossorigin="anonymous">
-
 <link rel="stylesheet"
 	th:href="@{https://pro.fontawesome.com/releases/v5.10.0/css/all.css}"
 	integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
@@ -37,10 +36,11 @@
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto">
-						<li class="nav-item active"><a class="nav-link active"
-							href="">Home
+
+						<li class="nav-item active"><a class="nav-link" href="/index">Home
 						</a></li>
-						<li class="nav-item"><a class="nav-link" href="/library">Library</a></li>
+
+						<li class="nav-item"><a class="nav-link active" href="">Library</a></li>
 
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
@@ -62,7 +62,7 @@
 							class="btn btn-danger"><b>Logout</b></a>
 						<form name="logoutForm" th:action="@{/logout}" method="post"
 							th:hidden="true">
-							<input hidden type="submit" value="Sign Out" />
+							<input type="submit" value="Sign Out" />
 						</form>
 					</div>
 				</div>
@@ -75,17 +75,51 @@
 				<div class="col-sm-8 mx-auto">
 
 					<!--  Page Contents -->
-					<h1><span th:text="${message}"></span> Welcome to the Book Share Application</h1>
-					<br />
+					<h1>Book Library</h1>
 
+					<!-- <table id="data" class="table table-striped table-condensed"></table> -->
+					<div class="row justify-content-center">
+						<div class="col-md-8">
+							<div class="card">
+								<div class="card-header">Editable Books Table</div>
 
-					
+								<div class="card-body">
 
+									<button class="btn btn-primary" id="submit_data">Submit</button>
+									<div class="table-responsive">
+									<table class="table table-hover" id="makeEditable">
+									<!-- <table class="table table-responsive-md table-sm table-bordered" id="makeEditable"> -->
+										<thead>
+											<tr>
+												<th scope="col">Image</th>
+												<th scope="col">Title</th>
+												<th scope="col">Author</th>
+												<th scope="col">Publisher</th>
+												<th scope="col">Description</th>
+												<th scope="col">Pages</th>
+											</tr>
+										</thead>
+										<tbody>
 
+											<tr th:each="book: ${books}">
+												<td><img alt="" th:src="${book.imageUrl}"></td>
+												<td th:text="${book.title}" />
+												<td th:text="${book.author}" />
+												<td th:text="${book.publisher}" />
+												<td th:text="${book.description}" />
+												<td th:text="${book.pages}" />
+											</tr>
 
+										</tbody>
+									</table>
+									</div>
+									<span style="float: right"><button id="but_add" class="btn btn-danger">Add New Book</button></span>
+								</div>
+							</div>
+						</div>
+					</div>
 
-					<br /> <a href="/example">Example URL</a><br /> <br /> © <span
-						th:text="${#dates.year(#dates.createNow())}"></span>
+					© <span th:text="${#dates.year(#dates.createNow())}"></span>
 					<!--  Page Contents End -->
 
 				</div>
@@ -101,11 +135,8 @@
 		src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
 		crossorigin="anonymous"></script>
-	<!-- <script src="https://www.jqueryscript.net/demo/jQuery-Editable-Data-Table-with-Custom-Fields/js/custom-fields.js"></script> -->
 
 	<script src="/js/bootstable.js"></script>
-
-</body>
 
 	<script>
 		$(function() {
@@ -134,5 +165,8 @@
 			});
 		});
 	</script>
+
+
+</body>
 
 </html>

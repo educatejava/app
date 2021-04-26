@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<title>Welcome to the App</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+
+<link rel="canonical"
+	href="https://getbootstrap.com/docs/5.0/examples/navbars/">
+<link
+	th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css}"
+	rel="stylesheet"
+	integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+	crossorigin="anonymous">
+
+</head>
+<body>
+	<main>
+
+		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="/index">ShareBooks</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto">
+						
+
+					</ul>
+					<div class="text-end">
+						<button type="button" class="btn btn-warning">Sign-up</button>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+
+		<div>
+			<div class="bg-light p-4 rounded">
+				<div class="col-sm-4 mx-auto">
+
+					<!--  Page Contents -->
+
+					<div class="section nobg full-screen nopadding nomargin">
+						<div class="container-fluid vertical-middle divcenter clearfix">
+
+							<div class="text-center">
+								<h2>Share Books</h2>
+							</div>
+
+							<div class="card divcenter noradius noborder">
+								<div class="card-body" style="padding: 40px;">
+
+									<div th:if="${param.error}" class="alert alert-danger" role="alert">
+									Invalid username or password.</div>
+										
+									<div th:if="${param.logout}">You have been logged out.</div>
+
+									<form id="login-form" name="login-form" class="nobottommargin"
+										th:action="@{/login}" method="post">
+										<h3>Login to your Account</h3>
+
+										<div class="col_full">
+											<label for="username">Username:</label> <input type="text"
+												id="username" name="username" value=""
+												class="form-control not-dark" />
+										</div>
+										<input type="hidden" name="${_csrf.parameterName}"
+											value="${_csrf.token}" />
+										<div class="col_full">
+											<label for="password">Password:</label> <input
+												type="password" id="password" name="password" value=""
+												class="form-control not-dark" />
+										</div>
+
+										<div class="col_full nobottommargin">
+											<button class="button button-3d button-black nomargin"
+												id="login-form-submit" name="login-form-submit"
+												value="login">Login</button>
+											<!--/* <a href="#" class="fright">Forgot Password?</a> */-->
+										</div>
+									</form>
+
+									<div class="line line-sm"></div>
+
+								</div>
+							</div>
+
+							<div class="center dark">
+								<small>Copyrights &copy; All Rights Reserved by Share
+									Books.</small>
+							</div>
+
+						</div>
+					</div>
+
+
+					<!--  Page Contents End -->
+
+				</div>
+			</div>
+		</div>
+
+
+	</main>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+		crossorigin="anonymous"></script>
+
+</body>
+
+</html>
