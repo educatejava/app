@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>80</x>
+      <y>70</y>
+      <w>220</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>_object: User_
+--
+id: int="111111"
+userName: String="Hari"
+password: String="securePass"</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>90</x>
+      <y>210</y>
+      <w>240</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>_object: Barrower_
+--
+id: int="1112"
+userName: String="Venu"
+title: String="Spring in action"
+checkoutDate: Date="03/04/2021"
+returnDate: Date="04/05/2021"</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>460</x>
+      <y>80</y>
+      <w>280</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>_object: Book_
+--
+id: int="1112"
+title: String="Spring in action"
+author: String="Rakesh"
+publisher: String="Manning"
+description: String="Complete Reference"
+imageUrl: String="http://url.jpg"
+checkedOut: Boolean="true"</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>320</x>
+      <y>140</y>
+      <w>160</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;..</panel_attributes>
+    <additional_attributes>140.0;10.0;80.0;10.0;80.0;120.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>290</x>
+      <y>110</y>
+      <w>80</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;..</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0;60.0;130.0;40.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>290</x>
+      <y>80</y>
+      <w>190</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-&gt;&gt;
+m1=1
+m2=*</panel_attributes>
+    <additional_attributes>10.0;10.0;170.0;10.0</additional_attributes>
+  </element>
+</diagram>

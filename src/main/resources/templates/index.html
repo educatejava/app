@@ -38,24 +38,10 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto">
 						<li class="nav-item active"><a class="nav-link active"
-							href="">Home
-						</a></li>
+							href="">Home </a></li>
 						<li class="nav-item"><a class="nav-link" href="/library">Library</a></li>
-
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false"> Dropdown </a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="#">Action</a> <a
-									class="dropdown-item" href="#">Another action</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">Something else here</a>
-							</div></li>
-
-						<li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a>
-
-						</li>
+						<li class="nav-item"><a class="nav-link" href="/example">Invalid
+								URL</a></li>
 					</ul>
 					<div class="text-end">
 						<a href="javascript: document.logoutForm.submit()" role="menuitem"
@@ -75,17 +61,18 @@
 				<div class="col-sm-8 mx-auto">
 
 					<!--  Page Contents -->
-					<h1><span th:text="${message}"></span> Welcome to the Book Share Application</h1>
-					<br />
-
-
+					<section class="jumbotron text-center">
+						<div class="container">
+							<h1 class="jumbotron-heading"><span th:text="${message}"></span> Welcome to Share Your Books</h1><br/>
+							<p class="lead text-muted">As a User You can view your Book Library, Edit Book details, and Share.</p><br/>
+							<p>
+								<a href="/library" class="btn btn-primary">Library</a> 
+								<a href="#" class="btn btn-secondary">Share Your Books</a>
+							</p>
+						</div>
+					</section>
 					
-
-
-
-
-					<br /> <a href="/example">Example URL</a><br /> <br /> © <span
-						th:text="${#dates.year(#dates.createNow())}"></span>
+					<br /> <br /> <br /> © <span th:text="${#dates.year(#dates.createNow())}"></span>All Rights Reserved by Share Books.
 					<!--  Page Contents End -->
 
 				</div>
@@ -94,6 +81,9 @@
 
 
 	</main>
+
+
+
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 		crossorigin="anonymous"></script>
@@ -104,35 +94,37 @@
 	<!-- <script src="https://www.jqueryscript.net/demo/jQuery-Editable-Data-Table-with-Custom-Fields/js/custom-fields.js"></script> -->
 
 	<script src="/js/bootstable.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.7/holder.min.js"></script>
 
 </body>
 
-	<script>
-		$(function() {
+<script>
+	$(function() {
 
-			$('#makeEditable').SetEditable({
-				$addButton : $('#but_add')
-			});
-
-			$('#submit_data').on('click', function() {
-				var td = TableToCSV('makeEditable', ',');
-				console.log(td);
-				var ar_lines = td.split("\n");
-				var each_data_value = [];
-				for (i = 0; i < ar_lines.length; i++) {
-					each_data_value[i] = ar_lines[i].split(",");
-				}
-
-				for (i = 0; i < each_data_value.length; i++) {
-					if (each_data_value[i] > 1) {
-						console.log(each_data_value[i][2]);
-						console.log(each_data_value[i].length);
-					}
-
-				}
-
-			});
+		$('#makeEditable').SetEditable({
+			$addButton : $('#but_add')
 		});
-	</script>
+
+		$('#submit_data').on('click', function() {
+			var td = TableToCSV('makeEditable', ',');
+			console.log(td);
+			var ar_lines = td.split("\n");
+			var each_data_value = [];
+			for (i = 0; i < ar_lines.length; i++) {
+				each_data_value[i] = ar_lines[i].split(",");
+			}
+
+			for (i = 0; i < each_data_value.length; i++) {
+				if (each_data_value[i] > 1) {
+					console.log(each_data_value[i][2]);
+					console.log(each_data_value[i].length);
+				}
+
+			}
+
+		});
+	});
+</script>
 
 </html>

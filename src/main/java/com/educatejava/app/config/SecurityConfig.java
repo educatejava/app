@@ -1,7 +1,8 @@
 package com.educatejava.app.config;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,12 +19,20 @@ import com.educatejava.app.service.AppUserDetailsService;
  * The Class SecurityConfig.
  */
 @Configuration
-//@EnableConfigurationProperties
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter implements ApplicationContextAware {
+	
+	/** The Constant LOGGER. */
+	private static final Logger LOGGER = LoggerFactory.getLogger(SecurityConfig.class);
 
 	/** The Constant LOGIN_URL. */
-	private final static String LOGIN_URL = "/login";
+	private static final String LOGIN_URL = "/login";
+	
+	/** The Constant LOGIN_FAILURE. */
+	private static final String LOGIN_FAILURE = "/login?error=true";
+	
+	/** The Constant INDEX_URL. */
+	private static final String INDEX_URL = "/index";
 
 	/** The app user details service. */
 	@Autowired
@@ -37,9 +46,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements Appl
 	 */
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-
+		LOGGER.debug("SecurityConfig.configure() Configuring HTTP Security.");
 		http.csrf().disable().authorizeRequests().anyRequest().authenticated().and().formLogin().loginPage(LOGIN_URL)
-				.loginProcessingUrl(LOGIN_URL).failureUrl("/login?error=true").defaultSuccessUrl("/index", true)
+				.loginProcessingUrl(LOGIN_URL).failureUrl(LOGIN_FAILURE).defaultSuccessUrl(INDEX_URL, true)
 				.permitAll().and().logout().permitAll().logoutSuccessUrl(LOGIN_URL).invalidateHttpSession(true)
 				.deleteCookies("JSESSIONID");
 
@@ -63,6 +72,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements Appl
 	 */
 	@Override
 	public void configure(AuthenticationManagerBuilder builder) throws Exception {
+		LOGGER.debug("SecurityConfig.configure() Configuring User Authentication.");
 		builder.userDetailsService(appUserDetailsService).passwordEncoder(passwordEncoder());
 	}
 

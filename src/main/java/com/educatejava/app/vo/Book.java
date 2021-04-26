@@ -26,6 +26,9 @@ public class Book {
 	/** The image url. */
 	private String imageUrl;
 	
+	/** The checked out. */
+	private Boolean checkedOut;
+	
 	/** The pages. */
 	private int pages;
 	// id, title, author, year, publisher, description, category, imageUrl, rating
@@ -52,8 +55,9 @@ public class Book {
 	 * @param description the description
 	 * @param imageUrl the image url
 	 * @param pages the pages
+	 * @param checkedOut the checked out
 	 */
-	public Book(int id, String title, String author, String publisher, String description, String imageUrl, int pages) {
+	public Book(int id, String title, String author, String publisher, String description, String imageUrl, int pages, Boolean checkedOut) {
 		this.id = id;
 		this.title = title;
 		this.author = author;
@@ -61,6 +65,7 @@ public class Book {
 		this.description = description;
 		this.imageUrl = imageUrl;
 		this.pages = pages;
+		this.checkedOut = checkedOut;
 	}
 
 	/**
@@ -188,16 +193,36 @@ public class Book {
 	public void setPages(int pages) {
 		this.pages = pages;
 	}
+	
+	
 
 	/**
-	 * To string.
+	 * Gets the checked out.
 	 *
-	 * @return the string
+	 * @return the checked out
 	 */
+	public Boolean getCheckedOut() {
+		return checkedOut;
+	}
+
+	/**
+	 * Sets the checked out.
+	 *
+	 * @param checkedOut the new checked out
+	 */
+	public void setCheckedOut(Boolean checkedOut) {
+		this.checkedOut = checkedOut;
+	}
+
 	@Override
 	public String toString() {
 		return "Book [id=" + id + ", title=" + title + ", author=" + author + ", publisher=" + publisher
-				+ ", description=" + description + ", imageUrl=" + imageUrl + ", pages=" + pages + "]";
+				+ ", description=" + description + ", imageUrl=" + imageUrl + ", checkedOut=" + checkedOut + ", pages="
+				+ pages + "]";
 	}
+
+	
+
+	
 
 }

@@ -41,21 +41,6 @@
 						</a></li>
 
 						<li class="nav-item"><a class="nav-link active" href="">Library</a></li>
-
-						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false"> Dropdown </a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="#">Action</a> <a
-									class="dropdown-item" href="#">Another action</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">Something else here</a>
-							</div></li>
-
-						<li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a>
-
-						</li>
 					</ul>
 					<div class="text-end">
 						<a href="javascript: document.logoutForm.submit()" role="menuitem"
@@ -79,7 +64,7 @@
 
 					<!-- <table id="data" class="table table-striped table-condensed"></table> -->
 					<div class="row justify-content-center">
-						<div class="col-md-8">
+						<div class="col-md-12">
 							<div class="card">
 								<div class="card-header">Editable Books Table</div>
 
@@ -88,7 +73,6 @@
 									<button class="btn btn-primary" id="submit_data">Submit</button>
 									<div class="table-responsive">
 									<table class="table table-hover" id="makeEditable">
-									<!-- <table class="table table-responsive-md table-sm table-bordered" id="makeEditable"> -->
 										<thead>
 											<tr>
 												<th scope="col">Image</th>
@@ -97,6 +81,7 @@
 												<th scope="col">Publisher</th>
 												<th scope="col">Description</th>
 												<th scope="col">Pages</th>
+												<th scope="col">CheckedOut</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -108,6 +93,7 @@
 												<td th:text="${book.publisher}" />
 												<td th:text="${book.description}" />
 												<td th:text="${book.pages}" />
+												<td th:text="${book.checkedOut}" />
 											</tr>
 
 										</tbody>
@@ -119,7 +105,7 @@
 						</div>
 					</div>
 
-					© <span th:text="${#dates.year(#dates.createNow())}"></span>
+					<br /> © <span th:text="${#dates.year(#dates.createNow())}"></span>All Rights Reserved by Share Books.
 					<!--  Page Contents End -->
 
 				</div>
