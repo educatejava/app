@@ -21,10 +21,10 @@ Checkout books shared by friend
 
 
 
-###UML
+###UML:
 ![Share Books Application](/UML_diagram.png?raw=true)
 
-###Screens
+###Screens:
 ![desktop_Home](/desktop_Home.png?raw=true)
 ![Desktop_Library](/Desktop_Library.png?raw=true)
 ![Desktop_Library_Edit_Books](/Desktop_Library_Edit_Books.png?raw=true)
