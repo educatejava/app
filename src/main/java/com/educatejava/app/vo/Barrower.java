@@ -12,7 +12,7 @@ public class Barrower {
 	
 	/** The id. */
 	@Id
-	private int id;
+	private Integer id;
 	
 	/** The user name. */
 	private String userName;
@@ -35,7 +35,7 @@ public class Barrower {
 	 * @param checkedOutDate the checked out date
 	 * @param returnDate the return date
 	 */
-	public Barrower(int id, String userName, String bookTitle, Date checkedOutDate, Date returnDate) {
+	public Barrower(Integer id, String userName, String bookTitle, Date checkedOutDate, Date returnDate) {
 		this.id = id;
 		this.userName = userName;
 		this.bookTitle = bookTitle;
@@ -43,23 +43,29 @@ public class Barrower {
 		this.returnDate = returnDate;
 	}
 
+	
+
 	/**
 	 * Gets the id.
 	 *
 	 * @return the id
 	 */
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
+
+
 
 	/**
 	 * Sets the id.
 	 *
 	 * @param id the new id
 	 */
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
+
+
 
 	/**
 	 * Gets the user name.

@@ -9,7 +9,7 @@ public class Book {
 
 	/** The id. */
 	@Id
-	private int id;
+	private Integer id;
 	
 	/** The title. */
 	private String title;
@@ -30,7 +30,7 @@ public class Book {
 	private Boolean checkedOut;
 	
 	/** The pages. */
-	private int pages;
+	private Integer pages;
 	// id, title, author, year, publisher, description, category, imageUrl, rating
 
 	// private String isbn;
@@ -57,7 +57,7 @@ public class Book {
 	 * @param pages the pages
 	 * @param checkedOut the checked out
 	 */
-	public Book(int id, String title, String author, String publisher, String description, String imageUrl, int pages, Boolean checkedOut) {
+	public Book(Integer id, String title, String author, String publisher, String description, String imageUrl, Integer pages, Boolean checkedOut) {
 		this.id = id;
 		this.title = title;
 		this.author = author;
@@ -68,12 +68,14 @@ public class Book {
 		this.checkedOut = checkedOut;
 	}
 
+	
+
 	/**
 	 * Gets the id.
 	 *
 	 * @return the id
 	 */
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
@@ -82,8 +84,26 @@ public class Book {
 	 *
 	 * @param id the new id
 	 */
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	/**
+	 * Gets the pages.
+	 *
+	 * @return the pages
+	 */
+	public Integer getPages() {
+		return pages;
+	}
+
+	/**
+	 * Sets the pages.
+	 *
+	 * @param pages the new pages
+	 */
+	public void setPages(Integer pages) {
+		this.pages = pages;
 	}
 
 	/**
@@ -176,24 +196,6 @@ public class Book {
 		this.imageUrl = imageUrl;
 	}
 
-	/**
-	 * Gets the pages.
-	 *
-	 * @return the pages
-	 */
-	public int getPages() {
-		return pages;
-	}
-
-	/**
-	 * Sets the pages.
-	 *
-	 * @param pages the new pages
-	 */
-	public void setPages(int pages) {
-		this.pages = pages;
-	}
-	
 	
 
 	/**
@@ -214,12 +216,19 @@ public class Book {
 		this.checkedOut = checkedOut;
 	}
 
+	/**
+	 * To string.
+	 *
+	 * @return the string
+	 */
 	@Override
 	public String toString() {
 		return "Book [id=" + id + ", title=" + title + ", author=" + author + ", publisher=" + publisher
 				+ ", description=" + description + ", imageUrl=" + imageUrl + ", checkedOut=" + checkedOut + ", pages="
 				+ pages + "]";
 	}
+
+	
 
 	
 

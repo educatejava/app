@@ -49,7 +49,7 @@ public class AppUserDetailsService implements UserDetailsService{
 		}
 		List<SimpleGrantedAuthority> authorities = Arrays.asList(new SimpleGrantedAuthority("user"));
 		LOGGER.debug("AppUserDetailsService.UserDetails() Authorizing User: {}", username);
-		return new org.springframework.security.core.userdetails.User(user.getUserName(), passwordEncoder.encode(user.getPassword()),
+		return new org.springframework.security.core.userdetails.User(user.getUserName(), user.getPassword(),
 				authorities);
 	}
 

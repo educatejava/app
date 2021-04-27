@@ -21,6 +21,9 @@ public interface BookRepository extends MongoRepository<Book, String> {
 	 */
 	public Book findById(int id);
 	
+
+	public List<Book> findByIdIn(List<Integer> ids);
+	
 	/**
 	 * Find by title.
 	 *

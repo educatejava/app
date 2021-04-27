@@ -1,6 +1,9 @@
 package com.educatejava.app.vo;
 
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 
 
 /**
@@ -17,6 +20,11 @@ public class User {
 	
 	/** The password. */
 	private String password;
+	
+	/** The user books. */
+	/** used Mongo DB reference concept which removes the redundancy **/
+	@DBRef
+	private List<Book> userBooks;
 	
 	//private String email;
 	//private String firstName;
@@ -41,10 +49,12 @@ public class User {
 	 *
 	 * @param userName the user name
 	 * @param password the password
+	 * @param userBooks the user books
 	 */
-	public User(String userName, String password) {
+	public User(String userName, String password, List<Book> userBooks) {
 		this.userName = userName;
 		this.password = password;
+		this.userBooks = userBooks;
 	}
 
 	
@@ -103,6 +113,26 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	
+
+	/**
+	 * Gets the user books.
+	 *
+	 * @return the user books
+	 */
+	public List<Book> getUserBooks() {
+		return userBooks;
+	}
+
+	/**
+	 * Sets the user books.
+	 *
+	 * @param userBooks the new user books
+	 */
+	public void setUserBooks(List<Book> userBooks) {
+		this.userBooks = userBooks;
+	}
 
 	/**
 	 * To string.
@@ -111,8 +141,10 @@ public class User {
 	 */
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", userName=" + userName + ", password=" + password + "]";
+		return "User [id=" + id + ", userName=" + userName + ", password=" + password + ", userBooks=" + userBooks
+				+ "]";
 	}
+
 
 }
 
